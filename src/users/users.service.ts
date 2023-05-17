@@ -13,13 +13,11 @@ export class UsersService {
     private repository: Repository<UserEntity>,
   ) {}
 
-  async findByEmail(email: string): Promise<UserEntity | undefined> {
-    return this.repository.findOneBy({
-      email,
-    });
+  async findByEmail(email: string) {
+    return this.repository.findOneBy({ email });
   }
 
-  async findById(id: number): Promise<UserEntity | undefined> {
+  async findById(id: number) {
     return this.repository.findOneBy({ id });
   }
 

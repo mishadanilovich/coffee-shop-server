@@ -1,14 +1,35 @@
-import { Body, Controller, Post, HttpCode, HttpStatus } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  UseGuards,
+  Request,
+  Body,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
+import { ApiBody, ApiTags } from '@nestjs/swagger';
+
+import { LocalAuthGuard } from './guards/local.guard';
 import { AuthService } from './auth.service';
-import { SignInDto } from './dto/sign-in.dto';
+import { LoginDto } from './dto/login.dto';
+import { CreateUserDto } from '../users/dto/create-user.dto';
+import { UserEntity } from '../users/entities/user.entity';
 
 @Controller('auth')
+@ApiTags('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private readonly authService: AuthService) {}
 
-  @HttpCode(HttpStatus.OK)
+  @UseGuards(LocalAuthGuard)
   @Post('login')
-  signIn(@Body() signInDto: SignInDto) {
-    return this.authService.signIn(signInDto.email, signInDto.password);
+  @ApiBody({ type: LoginDto })
+  async login(@Request() req) {
+    return this.authService.login(req.user as Omit<UserEntity, 'password'>);
+  }
+
+  @Post('register')
+  @UsePipes(ValidationPipe)
+  register(@Body() dto: CreateUserDto) {
+    return this.authService.register(dto);
   }
 }
