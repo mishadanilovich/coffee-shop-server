@@ -14,7 +14,6 @@ export class UsersController {
   @Get('/me')
   @UseGuards(JwtAuthGuard)
   getMe(@UserId() id: number) {
-    console.log('UserId');
     return this.usersService.findById(id);
   }
 }
