@@ -13,7 +13,7 @@ export class UsersController {
 
   @Get('/me')
   @UseGuards(JwtAuthGuard)
-  getMe(@UserId() id: number) {
+  getMe(@UserId() id: string) {
     return this.usersService.findById(id);
   }
 }
