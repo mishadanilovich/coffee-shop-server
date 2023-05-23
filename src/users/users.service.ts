@@ -4,6 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserEntity } from './entities/user.entity';
+import { UpdateUserDto } from './dto/update-user.dto';
 import { encodePassword } from '../utils/bcrypt';
 
 @Injectable()
@@ -26,5 +27,9 @@ export class UsersService {
   create(userDto: CreateUserDto) {
     const password = encodePassword(userDto.password);
     return this.repository.save({ ...userDto, password });
+  }
+
+  update(id: string, userDto: UpdateUserDto) {
+    return this.repository.update({ id }, userDto);
   }
 }

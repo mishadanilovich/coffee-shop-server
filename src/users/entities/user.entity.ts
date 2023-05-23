@@ -8,7 +8,7 @@ export class UserEntity {
   @Column()
   email: string;
 
-  @Column()
+  @Column({ nullable: true })
   contactPhone: string;
 
   @Column()
@@ -16,4 +16,7 @@ export class UserEntity {
 
   @Column()
   password: string;
+
+  @Column({ nullable: true })
+  address?: string;
 }
