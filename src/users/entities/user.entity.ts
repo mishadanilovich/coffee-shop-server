@@ -8,7 +8,7 @@ export class UserEntity {
   @Column()
   email: string;
 
-  @Column({ nullable: true })
+  @Column()
   contactPhone: string;
 
   @Column()

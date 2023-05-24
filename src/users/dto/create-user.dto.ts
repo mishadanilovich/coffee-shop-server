@@ -25,7 +25,7 @@ export class CreateUserDto {
   @ApiProperty({
     default: '+375(33)333-33-33',
   })
-  @IsOptional()
+  @IsNotEmpty()
   @IsString()
   contactPhone: string;
 
