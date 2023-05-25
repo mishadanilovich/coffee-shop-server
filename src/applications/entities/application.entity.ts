@@ -20,7 +20,7 @@ export class ApplicationEntity {
   contactPhone: string;
 
   @Column()
-  address?: string;
+  message?: string;
 
   @DeleteDateColumn()
   deletedAt?: Date;

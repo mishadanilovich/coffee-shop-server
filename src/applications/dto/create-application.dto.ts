@@ -28,5 +28,5 @@ export class CreateApplicationDto {
   })
   @IsString()
   @IsOptional()
-  address: string;
+  message: string;
 }
