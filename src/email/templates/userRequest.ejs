@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,500&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #D3AD7F;
+            background: #13131A;
+        }
+
+        body {
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        p, a {
+            text-decoration: none;
+            color: #EAEAEA !important;
+            font-size: 16px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #FFFFFF;
+        }
+
+        .content {
+            color: #EFEFEF;
+            padding: 0 20px 20px;
+        }
+
+        .content-item:not(:last-of-type) {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Request from <%= username %></h1>
+    </header>
+    <div class='content'>
+        <div class='content-item'>
+            <h2 class='content-item__title'>Email:</h2>
+            <p class='content-item__description'><%= email %></p>
+        </div>
+        <div class='content-item'>
+            <h2 class='content-item__title'>Contact phone:</h2>
+            <p class='content-item__description'><%= contactPhone %></p>
+        </div>
+        <% if (address) { %>
+            <div class='content-item'>
+                <h2 class='content-item__title'>Address:</h2>
+                <p class='content-item__description'><%= address %></p>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>

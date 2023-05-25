@@ -13,10 +13,13 @@ import { BlogsModule } from './blogs/blogs.module';
 import { BlogEntity } from './blogs/entities/blog.entity';
 import { ApplicationsModule } from './applications/applications.module';
 import { ApplicationEntity } from './applications/entities/application.entity';
+import { EmailModule } from './email/email.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
@@ -33,6 +36,7 @@ import { ApplicationEntity } from './applications/entities/application.entity';
       ],
       synchronize: true,
     }),
+    EmailModule,
     UsersModule,
     AuthModule,
     BaristasModule,

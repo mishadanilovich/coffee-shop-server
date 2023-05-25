@@ -1,26 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { MailerModule } from '@nestjs-modules/mailer';
-import { ConfigModule } from '@nestjs/config';
 
 import { ApplicationsService } from './applications.service';
 import { ApplicationsController } from './applications.controller';
 import { ApplicationEntity } from './entities/application.entity';
+import { EmailModule } from '../email/email.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot(),
-    TypeOrmModule.forFeature([ApplicationEntity]),
-    MailerModule.forRoot({
-      transport: {
-        service: 'gmail',
-        auth: {
-          user: process.env.SHOP_EMAIL,
-          pass: process.env.SHOP_EMAIL_PASSWORD,
-        },
-      },
-    }),
-  ],
+  imports: [TypeOrmModule.forFeature([ApplicationEntity]), EmailModule],
   controllers: [ApplicationsController],
   providers: [ApplicationsService],
 })
