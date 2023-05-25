@@ -11,6 +11,8 @@ import { LessonsModule } from './lessons/lessons.module';
 import { LessonEntity } from './lessons/entities/lesson.entity';
 import { BlogsModule } from './blogs/blogs.module';
 import { BlogEntity } from './blogs/entities/blog.entity';
+import { ApplicationsModule } from './applications/applications.module';
+import { ApplicationEntity } from './applications/entities/application.entity';
 
 @Module({
   imports: [
@@ -22,7 +24,13 @@ import { BlogEntity } from './blogs/entities/blog.entity';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [UserEntity, BaristaEntity, LessonEntity, BlogEntity],
+      entities: [
+        UserEntity,
+        BaristaEntity,
+        LessonEntity,
+        BlogEntity,
+        ApplicationEntity,
+      ],
       synchronize: true,
     }),
     UsersModule,
@@ -30,6 +38,7 @@ import { BlogEntity } from './blogs/entities/blog.entity';
     BaristasModule,
     LessonsModule,
     BlogsModule,
+    ApplicationsModule,
   ],
 })
 export class AppModule {}

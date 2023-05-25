@@ -20,8 +20,8 @@ import { UserEntity } from '../users/entities/user.entity';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @UseGuards(LocalAuthGuard)
   @Post('login')
+  @UseGuards(LocalAuthGuard)
   @ApiBody({ type: LoginDto })
   async login(@Request() req) {
     return this.authService.login(req.user as Omit<UserEntity, 'password'>);
@@ -29,6 +29,7 @@ export class AuthController {
 
   @Post('register')
   @UsePipes(ValidationPipe)
+  @ApiBody({ type: CreateUserDto })
   register(@Body() dto: CreateUserDto) {
     return this.authService.register(dto);
   }

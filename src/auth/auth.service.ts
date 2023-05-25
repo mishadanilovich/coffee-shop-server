@@ -45,7 +45,7 @@ export class AuthService {
     }
   }
 
-  async login(user: Omit<UserEntity, 'password'>) {
+  login(user: Omit<UserEntity, 'password'>) {
     return {
       token: this.jwtService.sign({ id: user.id }),
     };

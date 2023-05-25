@@ -9,8 +9,8 @@ export class BaristaEntity {
   fullName: string;
 
   @Column({ nullable: true })
-  avatar: string;
+  avatar?: string;
 
   @Column({ nullable: true })
-  quote: string;
+  quote?: string;
 }
