@@ -11,7 +11,7 @@ export class BlogsService {
     private repository: Repository<BlogEntity>,
   ) {}
 
-  async findAll() {
+  findAll() {
     return this.repository.find();
   }
 }

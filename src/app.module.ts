@@ -14,6 +14,7 @@ import { BlogEntity } from './blogs/entities/blog.entity';
 import { ApplicationsModule } from './applications/applications.module';
 import { ApplicationEntity } from './applications/entities/application.entity';
 import { EmailModule } from './email/email.module';
+import { MenuModule, CategoryEntity, MenuItemEntity } from './menu';
 
 @Module({
   imports: [
@@ -33,6 +34,8 @@ import { EmailModule } from './email/email.module';
         LessonEntity,
         BlogEntity,
         ApplicationEntity,
+        CategoryEntity,
+        MenuItemEntity,
       ],
       synchronize: true,
     }),
@@ -43,6 +46,7 @@ import { EmailModule } from './email/email.module';
     LessonsModule,
     BlogsModule,
     ApplicationsModule,
+    MenuModule,
   ],
 })
 export class AppModule {}

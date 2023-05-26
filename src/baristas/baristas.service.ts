@@ -11,7 +11,7 @@ export class BaristasService {
     private repository: Repository<BaristaEntity>,
   ) {}
 
-  async findAll() {
+  findAll() {
     return this.repository.find();
   }
 }

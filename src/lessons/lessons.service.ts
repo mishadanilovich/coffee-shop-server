@@ -11,7 +11,7 @@ export class LessonsService {
     private repository: Repository<LessonEntity>,
   ) {}
 
-  async findAll() {
+  findAll() {
     return this.repository.find();
   }
 }
