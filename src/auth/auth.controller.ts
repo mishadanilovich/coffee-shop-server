@@ -9,11 +9,10 @@ import {
 } from '@nestjs/common';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
 
-import { LocalAuthGuard } from './guards/local.guard';
 import { AuthService } from './auth.service';
-import { LoginDto } from './dto/login.dto';
-import { CreateUserDto } from '../users/dto/create-user.dto';
-import { UserEntity } from '../users/entities/user.entity';
+import { LocalAuthGuard } from './guards';
+import { LoginDto } from './dto';
+import { UserEntity, CreateUserDto } from '../users';
 
 @Controller('auth')
 @ApiTags('auth')

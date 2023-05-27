@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { LessonsService } from './lessons.service';
 import { LessonsController } from './lessons.controller';
-import { LessonEntity } from './entities/lesson.entity';
+import { LessonEntity } from './entities';
 
 @Module({
   controllers: [LessonsController],

@@ -9,8 +9,8 @@ import {
 import { ApiBearerAuth, ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 import { ApplicationsService } from './applications.service';
-import { CreateApplicationDto } from './dto/create-application.dto';
-import { JwtAuthGuard } from '../auth/guards/jwt.guard';
+import { CreateApplicationDto } from './dto';
+import { JwtAuthGuard } from '../auth';
 
 @Controller('applications')
 @ApiTags('applications')

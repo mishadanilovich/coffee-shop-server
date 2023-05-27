@@ -13,7 +13,7 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 import { MenuService } from './menu.service';
 import { CreateCategoryDto, CreateMenuItemDto } from './dto';
-import { JwtAuthGuard } from '../auth/guards/jwt.guard';
+import { JwtAuthGuard } from '../auth';
 import { CategoryType, Role } from '../types';
 import { RolesGuard } from '../guards';
 import { Roles } from '../decorators';

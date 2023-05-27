@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { BaristasService } from './baristas.service';
 import { BaristasController } from './baristas.controller';
-import { BaristaEntity } from './entities/barista.entity';
+import { BaristaEntity } from './entities';
 
 @Module({
   controllers: [BaristasController],

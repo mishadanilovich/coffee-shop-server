@@ -2,9 +2,9 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { CreateApplicationDto } from './dto/create-application.dto';
-import { ApplicationEntity } from './entities/application.entity';
-import { EmailService } from '../email/email.service';
+import { CreateApplicationDto } from './dto';
+import { ApplicationEntity } from './entities';
+import { EmailService } from '../email';
 
 @Injectable()
 export class ApplicationsService {

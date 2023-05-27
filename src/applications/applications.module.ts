@@ -3,8 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { ApplicationsService } from './applications.service';
 import { ApplicationsController } from './applications.controller';
-import { ApplicationEntity } from './entities/application.entity';
-import { EmailModule } from '../email/email.module';
+import { ApplicationEntity } from './entities';
+import { EmailModule } from '../email';
 
 @Module({
   imports: [TypeOrmModule.forFeature([ApplicationEntity]), EmailModule],
