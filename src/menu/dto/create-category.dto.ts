@@ -3,7 +3,7 @@ import { ArrayMinSize, IsArray, IsNotEmpty, IsString } from 'class-validator';
 import { Type } from 'class-transformer';
 
 import { CreateMenuItemDto } from './create-menu-item.dto';
-import { CategoryType } from '../../interfaces';
+import { CategoryType } from '../../types';
 
 export class CreateCategoryDto {
   @ApiProperty()

@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 import { MenuItemEntity } from './menu-item.entity';
-import { CategoryType, categoryTypes } from '../../interfaces';
+import { CategoryType, categoryTypes } from '../../types';
 
 @Entity('categories')
 export class CategoryEntity {

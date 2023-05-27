@@ -4,7 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 import { CreateCategoryDto, CreateMenuItemDto } from './dto';
 import { CategoryEntity, MenuItemEntity } from './entities';
-import { CategoryType } from '../interfaces';
+import { CategoryType } from '../types';
 
 @Injectable()
 export class MenuService {

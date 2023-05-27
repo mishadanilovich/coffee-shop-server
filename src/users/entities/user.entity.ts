@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Role } from '../../types';
 
 @Entity('users')
 export class UserEntity {
@@ -19,4 +20,7 @@ export class UserEntity {
 
   @Column({ nullable: true })
   address?: string;
+
+  @Column('text', { array: true, default: [Role.User] })
+  roles: Role[];
 }

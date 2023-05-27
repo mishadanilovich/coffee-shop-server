@@ -14,17 +14,20 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { MenuService } from './menu.service';
 import { CreateCategoryDto, CreateMenuItemDto } from './dto';
 import { JwtAuthGuard } from '../auth/guards/jwt.guard';
-import { CategoryType } from '../interfaces';
+import { CategoryType, Role } from '../types';
+import { RolesGuard } from '../guards';
+import { Roles } from '../decorators';
 
 @Controller('menu')
 @ApiTags('menu')
-@UseGuards(JwtAuthGuard)
+@UseGuards(JwtAuthGuard, RolesGuard)
 @ApiBearerAuth()
 export class MenuController {
   constructor(private readonly menuService: MenuService) {}
 
   @Post('category')
   @UsePipes(ValidationPipe)
+  @Roles(Role.Admin)
   async createCategory(@Body() createCategoryDto: CreateCategoryDto) {
     try {
       return await this.menuService.createCategory(createCategoryDto);
@@ -36,8 +39,9 @@ export class MenuController {
     }
   }
 
-  @UsePipes(ValidationPipe)
   @Post('item')
+  @UsePipes(ValidationPipe)
+  @Roles(Role.Admin)
   createMenuItem(@Body() createMenuItemDto: CreateMenuItemDto) {
     return this.menuService.createMenuItem(createMenuItemDto);
   }
