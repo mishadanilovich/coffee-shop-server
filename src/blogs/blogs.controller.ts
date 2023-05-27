@@ -2,7 +2,7 @@ import { Controller, Get, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 import { BlogsService } from './blogs.service';
-import { JwtAuthGuard } from '../auth';
+import { JwtAuthGuard } from '../auth/guards';
 
 @Controller('blogs')
 @ApiTags('blogs')

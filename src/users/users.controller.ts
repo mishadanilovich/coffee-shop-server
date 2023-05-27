@@ -12,7 +12,7 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { UsersService } from './users.service';
 import { UpdateUserDto } from './dto';
 import { UserId } from '../decorators';
-import { JwtAuthGuard } from '../auth';
+import { JwtAuthGuard } from '../auth/guards';
 
 @Controller('users')
 @ApiTags('users')
