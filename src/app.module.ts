@@ -10,6 +10,7 @@ import { LessonsModule, LessonEntity } from './lessons';
 import { BaristasModule, BaristaEntity } from './baristas';
 import { MenuModule, CategoryEntity, MenuItemEntity } from './menu';
 import { ApplicationsModule, ApplicationEntity } from './applications';
+import { BasketModule, BasketEntity, BasketItemEntity } from './basket';
 
 @Module({
   imports: [
@@ -31,6 +32,8 @@ import { ApplicationsModule, ApplicationEntity } from './applications';
         ApplicationEntity,
         CategoryEntity,
         MenuItemEntity,
+        BasketEntity,
+        BasketItemEntity,
       ],
       synchronize: true,
     }),
@@ -42,6 +45,7 @@ import { ApplicationsModule, ApplicationEntity } from './applications';
     BlogsModule,
     ApplicationsModule,
     MenuModule,
+    BasketModule,
   ],
 })
 export class AppModule {}

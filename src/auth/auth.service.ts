@@ -1,7 +1,7 @@
 import {
+  ConflictException,
   ForbiddenException,
   Injectable,
-  UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
@@ -29,7 +29,7 @@ export class AuthService {
   async register(dto: CreateUserDto) {
     const existingUser = await this.usersService.findByEmail(dto.email);
     if (existingUser) {
-      throw new UnauthorizedException('User with this email already exists');
+      throw new ConflictException('User with this email already exists');
     }
 
     try {

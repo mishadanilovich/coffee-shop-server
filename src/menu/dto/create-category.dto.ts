@@ -11,7 +11,10 @@ export class CreateCategoryDto {
   @IsString()
   name: string;
 
-  @ApiProperty({ type: OmitType(CreateMenuItemDto, ['categoryId']) })
+  @ApiProperty({
+    isArray: true,
+    type: OmitType(CreateMenuItemDto, ['categoryId']),
+  })
   @IsArray()
   @ArrayMinSize(1)
   @Type(() => OmitType(CreateMenuItemDto, ['categoryId']))
