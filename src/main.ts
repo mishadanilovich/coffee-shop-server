@@ -4,9 +4,16 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: false });
+  const app = await NestFactory.create(AppModule);
 
-  app.enableCors({ credentials: true, origin: true });
+  app.enableCors({
+    origin: [
+      'http://localhost:3000',
+      'https://coffee-shop-doppio-ui.vercel.app/',
+    ],
+    methods: ['GET', 'POST', 'UPDATE', 'DELETE', 'PATCH', 'OPTIONS'],
+    credentials: true,
+  });
 
   const config = new DocumentBuilder()
     .setTitle('Coffee shop')
