@@ -11,7 +11,9 @@ async function bootstrap() {
       'http://localhost:3000',
       'https://coffee-shop-doppio-ui.vercel.app/',
     ],
-    methods: ['GET', 'POST', 'UPDATE', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Accept', 'Content-Type'],
+    preflightContinue: false,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });
 
