@@ -11,6 +11,7 @@ import { BaristasModule, BaristaEntity } from './baristas';
 import { MenuModule, CategoryEntity, MenuItemEntity } from './menu';
 import { ApplicationsModule, ApplicationEntity } from './applications';
 import { BasketModule, BasketEntity, BasketItemEntity } from './basket';
+import { StripeModule } from './stripe';
 
 @Module({
   imports: [
@@ -46,6 +47,7 @@ import { BasketModule, BasketEntity, BasketItemEntity } from './basket';
     ApplicationsModule,
     MenuModule,
     BasketModule,
+    StripeModule,
   ],
 })
 export class AppModule {}

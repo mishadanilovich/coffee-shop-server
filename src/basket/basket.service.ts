@@ -55,8 +55,8 @@ export class BasketService {
     );
   }
 
-  findOne(id: string) {
-    return this.basketRepository.findBy({ id });
+  findById(id: string, relations?: string[]) {
+    return this.basketRepository.findOne({ where: { id }, relations });
   }
 
   async remove(userId: string, basketId: string) {

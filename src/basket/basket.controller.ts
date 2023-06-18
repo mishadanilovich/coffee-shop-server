@@ -54,8 +54,8 @@ export class BasketController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.basketService.findOne(id);
+  findById(@Param('id') id: string) {
+    return this.basketService.findById(id);
   }
 
   @Patch('submit')
